@@ -1,29 +1,28 @@
 \documentclass[dvipdfmx,9pt,aspectratio=32]{beamer}
 \usepackage{../../sty/slide}
+\usepackage{../../sty/private}
 
-    \title[]{\textbf{共焦点顕微鏡で得られた4Dデータに対する\\\vspace{5pt}リアルタイム複数物体追跡}}
-    \author[]{志村　駿}
-    \date[]{2025年 2月 14日}
-    \institute[]{名古屋大学大学院 工学研究科 機械システム工学専攻 \\ データ駆動システム研究グループ}
-    %[]に省略名
+    % 行間が気に入らないので再度定義
+    \title{共焦点顕微鏡で得られた4Dデータに対する\\\vspace{3pt}リアルタイム複数物体追跡}
+    \date{2025年 2月 14日}
 
     \begin{document}
 
-        \begin{frame}
-            \maketitle
-            \thispagestyle{empty}%ヘッダーフッターなし
-            \addtocounter{framenumber}{-1}%ページ数カウンタしない
+        % \maketitle
+
+        \begin{frame}{目次}
+            \tableofcontents
         \end{frame}
 
-        \input{src/slide/part1.tex}
+        \input{src/slide/sec1.tex}
 
-        \input{src/slide/part2.tex}
+        \input{src/slide/sec2.tex}
 
-        \input{src/slide/part3.tex}
+        \input{src/slide/sec3.tex}
 
-        \input{src/slide/part4.tex}
+        \input{src/slide/sec4.tex}
 
-        \input{src/slide/part5.tex}
+        \input{src/slide/sec5.tex}
 
         \begin{frame}[noframenumbering, plain, allowframebreaks]{参考文献}
             \thispagestyle{empty}
