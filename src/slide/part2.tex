@@ -1,0 +1,87 @@
+\section{問題設定}
+
+% \begin{frame}[noframenumbering]{目次}
+%     \tableofcontents[currentsection]
+% \end{frame}
+
+\begin{frame}{AIシステムによるリアルタイム複数細胞追跡}
+    \begin{itemize}
+        \item AIシステム：\red{すべての細胞をリアルタイム追跡}
+        \\\ra \red{\dotuline{\black{元住所}}}を保持しながら\red{\uline{\black{最新位置}}}をロボットに送信
+    \end{itemize}
+    \myfigure{slide/slide3-0.pdf}
+\end{frame}
+\begin{frame}[noframenumbering]{AIシステムによるリアルタイム複数細胞追跡}
+    \begin{itemize}
+        \item AIシステム：\red{すべての細胞をリアルタイム追跡}
+        \\\ra \red{\dotuline{\black{元住所}}}を保持しながら\red{\uline{\black{最新位置}}}をロボットに送信
+    \end{itemize}
+    \myfigure{slide/slide3-1.pdf}
+\end{frame}
+\begin{frame}[noframenumbering]{AIシステムによるリアルタイム複数細胞追跡}
+    \begin{itemize}
+        \item AIシステム：\red{すべての細胞をリアルタイム追跡}
+        \\\ra \red{\dotuline{\black{元住所}}}を保持しながら\red{\uline{\black{最新位置}}}をロボットに送信
+    \end{itemize}
+    \myfigure{slide/slide3-2.pdf}
+\end{frame}
+\begin{frame}[noframenumbering]{AIシステムによるリアルタイム複数細胞追跡}
+    \begin{itemize}
+        \item AIシステム：\red{すべての細胞をリアルタイム追跡}
+        \\\ra \red{\dotuline{\black{元住所}}}を保持しながら\red{\uline{\black{最新位置}}}をロボットに送信
+    \end{itemize}
+    \myfigure{slide/slide3-3.pdf}
+\end{frame}
+\begin{frame}[noframenumbering]{AIシステムによるリアルタイム複数細胞追跡}
+    \begin{itemize}
+        \item AIシステム：\red{すべての細胞をリアルタイム追跡}
+        \\\ra \red{\dotuline{\black{元住所}}}を保持しながら\red{\uline{\black{最新位置}}}をロボットに送信
+    \end{itemize}
+    \myfigure{slide/slide3-4.pdf}
+\end{frame}
+
+\begin{frame}{共焦点顕微鏡から得られる4Dデータ}
+    \begin{itemize}
+        \item 時系列データが必要（$\because$ 移動する細胞を取得する）
+        \item 三次元データが必要（$\because$ 酵素溶液処理により流体に満たされている）
+    \end{itemize}
+    \ra 共焦点顕微鏡\cite{paddock2000principles}で，\red{複数の高さでスライスした二次元画像の時系列データ}を取得
+    \\\phantom{\ra \blue{\textbf{Challenging}}：画像の取得に，\blue{1秒/1枚}かかる}
+    \myfigure{slide/slide4-1.pdf}
+    \footnotetext{\cite{paddock2000principles} \citeauthor{paddock2000principles} (\citeyear{paddock2000principles})}
+\end{frame}
+\begin{frame}[noframenumbering]{共焦点顕微鏡から得られる4Dデータ}
+    \begin{itemize}
+        \item 時系列データが必要（$\because$ 移動する細胞を取得する）
+        \item 三次元データが必要（$\because$ 酵素溶液処理により流体に満たされている）
+    \end{itemize}
+    \ra 共焦点顕微鏡\cite{paddock2000principles}で，\red{複数の高さでスライスした二次元画像の時系列データ}を取得
+    \\\ra \blue{\textbf{Challenging}}：画像の取得に，\blue{1秒/1枚}かかる
+    \myfigure{slide/slide4-2.pdf}
+    \footnotetext{\cite{paddock2000principles} \citeauthor{paddock2000principles} (\citeyear{paddock2000principles})}
+\end{frame}
+
+\begin{frame}{AIシステムによる見えない細胞の位置予測}
+    \begin{itemize}
+        \item \uline{高い時間分解能が必要}（スライス数 少）
+        \begin{itemize}
+            \item 動く細胞を追従して細胞を追跡しなければならない
+            \item 元住所を保持するために，FPSは上げておきたい
+        \end{itemize}
+        \vspace{.3zh}
+        \item \uline{高い空間分解能が必要}（スライス数 多）
+        \begin{itemize}
+            \item ロボットによる取得のために，高精度に位置を知りたい
+            \item できる限りすべての細胞を見逃したくない
+        \end{itemize}
+    \end{itemize}
+    \vs
+    \Ra トレードオフにより，\red{見えていない細胞を取りに行く必要}が生じる
+    \vspace{1.5zh}
+    \begin{block}{Advantages of AI-System}
+        \begin{enumerate}
+            \item 時間的・空間的に疎なデータから，\red{追跡および高精度な位置予測}を行う
+            \item 上記の処理を\red{高速}に行う
+        \end{enumerate}
+    \end{block}
+\end{frame}

@@ -1,0 +1,90 @@
+\begin{frame}[noframenumbering]{シロイヌナズナのscRNA-seq先行研究}
+    \myfigure{slide/app1.pdf}
+\end{frame}
+
+\begin{frame}[noframenumbering]{SORTのアルゴリズム}
+    \begin{block}{Algorithm of SORT}
+        \begin{enumerate}
+            \item 過去の観測変数からバウンディングボックスを予測
+            \item 予測位置と検出位置を比較し，ReID
+            \item これを繰り返す
+        \end{enumerate}        
+    \end{block}
+    \myfigure{sort.pdf}
+\end{frame}
+
+\begin{frame}[noframenumbering]{SORT + Depth-SORT}
+    \myfigure{sort_depthsort.pdf}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Slice Kalman Filter 1/2}
+    \begin{itemize}
+        \item 状態変数
+    \end{itemize}
+    \begin{equation}
+        \notag
+        \bm{s}_t = \left[x_t ,\dot{x}_t, y_t, \dot{y}_t, z_t, \dot{z}_t, r\right]^{\top}
+    \end{equation}
+    \begin{itemize}
+        \item 観測変数
+        \begin{itemize}
+            \item $\mathcal{S}_t^{\text{pred}}$：時刻$t$の観測予測に含まれるバウンディングボックスのスライス集合
+            \item $\mathcal{S}_t^{\text{obs}}$：時刻$t$の観測に含まれるバウンディングボックスのスライス集合
+        \end{itemize}
+    \end{itemize}
+    \vspace{0.5zh}
+    \begin{equation}
+        \notag
+        \begin{aligned}
+            &\text{Concat.}\left(\left\{
+                \bm{o}_t^{(s)} \mid s \in \mathcal{S}_t^{\text{pred}} \cap \mathcal{S}_t^{\text{obs}}
+            \right\}\right),
+            \\ & \textbf{where } \bm{o}_t^{(s)} = \left[x_t^{(s)}, y_t^{(s)}, w_t^{(s)}, w_t^{(s)}\right]
+        \end{aligned}
+    \end{equation}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Slice Kalman Filter 2/2}
+    \begin{itemize}
+        \item 状態遷移
+        \begin{itemize}
+            \item ※ $y,z$も同様
+        \end{itemize}
+    \end{itemize}
+    \begin{equation}
+        \notag
+        \begin{aligned}
+            & x_{t+1} = x_t + \dot{x}_t dt
+        \end{aligned}
+    \end{equation}
+    \begin{itemize}
+        \item 観測
+        \begin{itemize}
+            \item $r_t^{\text{app}}$：スライス$s$における断面円の半径
+            \item $t_c$：画像一枚の取得にかかる時間
+            \item $\delta z$：スライスの間隔
+        \end{itemize}
+    \end{itemize}
+    \begin{equation}
+        \notag
+        \begin{aligned}
+            & \bm{o}_t^{(s)} = h_s(\bm{s}_t),
+            \\ & \textbf{where } h_s(\bm{s}_t) = \begin{bmatrix}
+                x_t + \dot{x}_t (s-1) t_c
+                \\ y_t + \dot{y}_t (s-1) t_c
+                \\ 2 r_t^{\text{app}}
+                \\ 2 r_t^{\text{app}}
+            \end{bmatrix},
+            \\ & \phantom{\textbf{where }} r_t^{\text{app}} = \sqrt{r_t^2 - \left\{(s-1) \delta z - (z_t + \dot{z} (s-1) t_c)\right\}^2}
+        \end{aligned}
+    \end{equation}
+\end{frame}
+
+\begin{frame}[noframenumbering]{提案手法の全体像}
+    \myfigure{proposed_pipeline.pdf}
+\end{frame}
+
+
+\begin{frame}[noframenumbering]{元住所の特定}
+    \myfigure[0.8]{slide/azimuth_320.jpg}
+\end{frame}
