@@ -1,6 +1,6 @@
 .PHONY: create, clean
 
-MODE := slide
+MODE := thesis
 TARGET := $(MODE).pdf
 OBJECT := .obj
 SOURCE := ./src
