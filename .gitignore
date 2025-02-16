@@ -2,14 +2,6 @@
 
 *.pdf
 
-/fig/*.pdf
-
-/fig/*.png
-
-/fig/*.jpg
-
-/fig/*
-
 ./fig/.DS_Store
 
 .DS_Store
