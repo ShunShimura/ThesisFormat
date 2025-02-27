@@ -8,7 +8,7 @@
     - `thesis/`
     - `paper/`（abstract用）
     - `slide/`
-- `src/` ：texファイルのフォルダー．
+- `src/` ：texファイルのフォルダー
     - `thesis/`
         - `thesis.tex`（メインのファイル）
         - `chap*.tex`
@@ -19,8 +19,8 @@
         - `slide.tex`（メインのファイル）
         - `sec*.tex`
         - `app.tex`（appendix用）
-- `sty/` ：texスタイルファイルのフォルダー．
-    - `private.sty`: タイトル名や氏名などを記入．
+- `sty/` ：texスタイルファイルのフォルダー
+    - `private.sty`: タイトル名や氏名などを記入
     - `thesis.sty`
     - `paper.sty`
     - `slide.sty`
